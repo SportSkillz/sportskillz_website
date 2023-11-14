@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Roboto:wght@700&display=swap');
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+body{
+  padding:0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  overflow: hidden; 
+}
+.main-login{
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,50,0.8), rgba(0,0,50,0.8)), url(/images/loginImages/music.jpg);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.login{
+  width:50vw;
+  height:100vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.card-login{
+  width:60%;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding: 30px 35px;
+  background:#ffffff;
+  border-radius:20px;
+  box-shadow:0px 10px 40px #00000056;
+}
+
+.btn-login{
+  width: 100%;
+  padding: 5px 0px;
+  margin: 25px;
+  border:none;
+  border-radius:8px;
+  outline:none;
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:3px;
+  color:#ffffff;
+  background:#3c00a0;
+  box-shadow:0px 10px 40px-12px #00ff8052;
+  text-align: center;
+  text-decoration: none;
+}

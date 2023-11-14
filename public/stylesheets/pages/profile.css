@@ -1,0 +1,144 @@
+:root {
+  --color-primary: #2F9427;
+  --color-secondary: #CE0406;  
+  --color-gray: #D9D9D9;
+  --color-black: #000;
+}
+
+* {
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 10px solid var(--color-secondary);
+}
+
+header .logo {
+  width: 7rem;
+  max-width: 10rem;
+}
+
+header a {
+  font-family: Sometype Mono;
+  text-decoration: none;
+  margin-right: 1.25rem;
+  color: #fff;
+}
+
+.profile-left {
+  float: left;
+  width: 30%;
+}
+
+.profile-left img {
+  display: block;
+  width: 15rem;
+  height: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.profile-left .username {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.profile-rigth {
+  float: right;
+  width: 70%;
+}
+
+.bio-description {
+  font-size: 16px;
+  background-color: var(--color-gray);
+  border: 2px solid var(--color-black);
+  box-shadow: 4px 4px 0 var(--color-black);
+  max-width: 54rem;
+  padding: 2rem; 
+}
+
+.medalhas, .metas-a tigidas {
+  padding: .25rem;
+  margin-top: .25rem;
+}
+
+.cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex; 
+  align-items: start;
+  gap: 2rem;  
+  margin-bottom: 4rem;
+ 
+}
+
+.card { 
+  background-color: var(--color-gray);
+  border: 2px solid var(--color-black);
+  box-shadow: 4px 4px 0 var(--color-black);
+  max-width: 17rem;
+  margin-top: 1rem;
+  padding: 2rem; 
+}
+
+.header-card { 
+  display: flex;
+}
+.header-card img { 
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;  
+}
+
+.header-card p { 
+  font-size: 20px;
+}
+
+.center { 
+  text-align: center;
+}
+
+.mt-op1 { 
+  margin-top: 1rem;
+}
+
+.mt-op2 { 
+  margin-top: 2rem;
+}
+.mb-op1 { 
+  margin-bottom: 1rem;
+}
+
+.mb-op2 { 
+  margin-bottom: 2rem;
+}
+.ml-op1 { 
+  margin-left: 1rem;
+}
+
+.ml-op2 { 
+  margin-left: 2rem;
+}
+.mr-op1 { 
+  margin-right: 1rem;
+}
+
+.mr-op2 { 
+  margin-right: 2rem;
+}
