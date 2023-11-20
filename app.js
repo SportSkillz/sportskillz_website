@@ -1,12 +1,13 @@
 const express = require('express');
+const EJS = require('ejs');
 const app = express();
 const port = 3000;
 
-app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
-
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
+app.engine('html', EJS.renderFile);
 const profileRoute = require('./routes/profilePageRoute.js')
 const homepageRoute = require('./routes/homepageRoute.js')
 const loginRoute = require('./routes/loginRoute.js');
