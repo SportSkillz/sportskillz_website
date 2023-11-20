@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="/stylesheets/pages/homepage.css">
+    <link rel="stylesheet" href="/stylesheets/template/feedback-card.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -51,11 +52,17 @@
         </div>
     </section>
 
-    <section class="feedbacks">
+    <section class="feedback" id="feedbackSection">
         <h2>Feedbacks</h2>
+        <div class="feedback-box">
+            <script src="../script/feedback-card.js"></script>
+
+        </div>
     </section>
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs')%>
+    <script src="../script/homepage.js"></script>
 </body>
+    
 </html>

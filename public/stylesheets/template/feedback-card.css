@@ -1,0 +1,81 @@
+
+.feedback h2 {
+    color: white;
+    font-size: 40px;
+    background-color: var(--color-primary);
+    height: 10vh;
+    width: 25vw;
+    margin: 0 auto -50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.feedback-box {
+    margin: 0 auto 20px; /* Adjust the margin-bottom as needed */
+    height: 60vh;
+    width: 60vw;
+    background-color: red;
+    border-radius: 15px;
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+.feedback-card {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 15px;
+    background-color: #fff;
+    margin: 20px auto 10px; 
+    height: 5vw;
+    width: 50vw;
+    padding: 10px;
+    box-shadow: 3px 3px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.avatar-container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.feedback-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feedback-card h3, .feedback-card p {
+    margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .feedback h2, .feedback-box, .feedback-card {
+        width: 80vw;
+    }
+
+    .feedback h2 {
+        margin: 0 auto;
+    }
+
+    .feedback-card {
+        flex-direction: column;
+        height: auto;
+        margin-top: 20px;   
+        margin-bottom: 10px;
+    }
+    .feedback-card:first-child {
+        margin-top: 30px; /* Adjust the top margin for the first card as needed */
+    }
+    .avatar-container {
+        margin-right: 0;
+    }
+}
