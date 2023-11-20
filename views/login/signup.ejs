@@ -7,31 +7,31 @@
     <script src="https://kit.fontawesome.com/e25f884761.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="form-box">
-            <h1 id="title">Sign Up</h1>
-            <form>  
-                <div class="input-group">
-                    <div class="input-field" id="nameField">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text"  placeholder="Name">
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Email">
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="text" placeholder="Password">
-                    </div>
+    <div class="left-section">
+        <div id="signup-container">
+            <h2>Sign Up</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <span class="toggle-password" onclick="togglePassword()">Show</span>
                 </div>
-                <div class="btn-field">
-                    <a href="/" class="signupBtn"> <h4>Cadastro</h4></a>                    
-                </div>
+
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 
-    <script src="/scripts/signup.js"></script>
+    <div class="right-section">
+        <img src="../assets/login/rigth-image.jpg" alt="Image">
+    </div>
+
+    <script src="../script/login/signup.js"></script>
 </body>
 </html>
