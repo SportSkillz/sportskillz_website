@@ -1,3 +1,4 @@
+//Definindo constantes
 const express = require('express');
 const EJS = require('ejs');
 const app = express();
@@ -8,12 +9,15 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.engine('html', EJS.renderFile);
+
+//Definindo rotas
 const profileRoute = require('./routes/profilePageRoute.js')
 const homepageRoute = require('./routes/homepageRoute.js')
 const loginRoute = require('./routes/loginRoute.js');
 const signinRoute = require('./routes/signInRoute.js');
 const signupRoute = require('./routes/signUpRoute.js')
 
+//Configurando Rotas
 app.use('/', homepageRoute)
 app.use('/profile', profileRoute)
 app.use('/login', loginRoute)

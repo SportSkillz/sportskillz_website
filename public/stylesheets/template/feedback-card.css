@@ -5,44 +5,44 @@
     background-color: var(--color-primary);
     height: 10vh;
     width: 25vw;
-    margin: 0 auto -50px;
+    margin: 0 auto;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 1;
-}
+}   
 
 .feedback-box {
-    margin: 0 auto 20px; /* Adjust the margin-bottom as needed */
-    height: 60vh;
-    width: 60vw;
-    background-color: red;
-    border-radius: 15px;
-    box-sizing: border-box;
-    z-index: 0;
+    margin: -50px auto 20px; 
+    height: 70vh;
+    width: 70vw;
+    background-color: var(--color-secondary);
+    border-radius: 15px; 
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    flex-direction: column; 
 }
 
-.feedback-card {
-    display: flex;
+.feedback-card {    
+    display: flex;  
     align-items: center;
     color: black;
     font-size: 15px;
     background-color: #fff;
-    margin: 20px auto 10px; 
+    margin: 20px auto ; 
     height: 5vw;
     width: 50vw;
-    padding: 10px;
+    padding: 50px;
     box-shadow: 3px 3px;
-    border-radius: 10px;
-    position: relative;
+    border-radius: 15px;
 }
-
 .avatar-container {
     width: 50px;
     height: 50px;
-    overflow: hidden;
+    overflow: hidden;       
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -73,7 +73,7 @@
         margin-bottom: 10px;
     }
     .feedback-card:first-child {
-        margin-top: 30px; /* Adjust the top margin for the first card as needed */
+        margin-top: 30px;
     }
     .avatar-container {
         margin-right: 0;
