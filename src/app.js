@@ -1,6 +1,5 @@
 //Definindo constantes
-const express = require('express');
-const EJS = require('ejs');
+import express from 'express';
 const app = express();
 const port = 3000;
 
@@ -8,14 +7,14 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.engine('html', EJS.renderFile);
+app.engine('html', renderFile);
 
 //Definindo rotas
-const profileRoute = require('./routes/profilePageRoute.js')
-const homepageRoute = require('./routes/homepageRoute.js')
-const loginRoute = require('./routes/loginRoute.js');
-const signinRoute = require('./routes/signInRoute.js');
-const signupRoute = require('./routes/signUpRoute.js')
+import profileRoute from './src/routes/profilePageRoute.js';
+import homepageRoute from './src/routes/homepageRoute.js';
+import loginRoute from './src/routes/loginRoute.js';
+import signinRoute from './src/routes/signInRoute.js';
+import signupRoute from './src/routes/signUpRoute.js';
 
 //Configurando Rotas
 app.use('/', homepageRoute)

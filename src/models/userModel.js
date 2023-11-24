@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-require('../../config/database.js');
+import mongoose from 'mongoose';
+import '../../config/database.js';
 
 const {Schema} = mongoose;
 
@@ -10,4 +10,6 @@ const userSchema = new({
 
 });
 
-const User = mongoose.model('User', userSchema);
+const UserModel = model('User', userSchema);
+
+export default UserModel;
