@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/stylesheets/pages/homepage.css">
+    <link rel="stylesheet" href="/stylesheets/template/feedback-card.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <section class="banner">
+        <div class="banner-content">
+            <img src="assets/main-logo.svg" alt="Logo" id="banner-logo">
+            <p id="banner-text">O lugar perfeito para você aprender</p>
+            <a href="#" class="start-button">Comece</a>
+        </div>
+        <div class="square-image">
+            <img src="assets/quadra-em-desfoque.png" alt="Imagem Quadrada">
+        </div>
+    </section>
+
+    <section class="card-container">
+        <!--Card 1-->
+        <div class="card">
+            <h3 class='title-card'>Volei</h3>
+            <img src="assets/cardImages/volei-card.svg" alt="card-image">
+            <div class="description-box">
+                <p class='description-card'>Aprenda as técnicas avançadas do voleibol e melhore suas habilidades em quadra.</p>
+                <a href="#" class="course-button">Detalhes</a>
+            </div>
+        </div>
+    
+        <!--Card 2-->
+        <div class="card">
+            <h3 class='title-card'>Basquete</h3>
+            <img src="assets/cardImages/basquete-card.svg" alt="card-image">
+            <div class="description-box">
+                <p class='description-card'>Descubra os segredos do basquete e aprimore seu arremesso e dribles.</p>
+                <a href="#" class="course-button">Detalhes</a>
+            </div>
+        </div>
+    
+        <!--Card 3-->
+        <div class="card">
+            <h3 class='title-card'>Futebol</h3>
+            <img src="assets/cardImages/futebol-card.svg" alt="card-image">
+            <div class="description-box">
+                <p class='description-card'>Domine as táticas do futebol e aperfeiçoe sua habilidade com a bola nos pés.</p>
+                <a href="#" class="course-button">Detalhes</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback" id="feedbackSection">
+        <h2>Feedbacks</h2>
+        <div class="feedback-box">
+           <script src="../script/feedback-card.js"></script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs')%>
+    <script src="../script/homepage.js"></script>
+</body>
+    
+</html>

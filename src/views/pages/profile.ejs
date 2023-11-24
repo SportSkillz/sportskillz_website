@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/pages/profile.css">
+    <title>SportSkillz</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs')%>
+    <main>
+        <div class="profile-left">
+            <img src="../assets/profile-picture.png" alt="profile picture" class="ml-op2">
+            <p class="username center">@username</p>
+
+            <div class="modalidades-scores center">
+                <h3>Modalidades</h3>
+            </div>
+        </div>
+        
+        <div class="profile-rigth">
+            <div class="biography-part">
+                <h1 class="bio mt-op1">Biografia</h1>
+                <p class="bio-description mr-op2 mt-op1">Oi, eu sou o SadBart, e minha paixão pelos esportes começou com o vôlei,
+                        mas minha verdadeira paixão se revelou no basquete. 
+                        Este é o meu espaço para compartilhar minha jornada esportiva, 
+                        trocar experiências e apoiar outros atletas em busca de superação.
+                        Vamos continuar escrevendo nossa história no mundo dos esportes!</p>
+            </div>
+
+            <div class="medalhas">
+
+            </div>
+            
+            <section class="goal-section">
+                <h1>Metas Atingidas</h1>
+                <div class="cards">
+                    <article class="card ">
+                        <div class="header-card">
+                            <img src="../assets/profile-picture.png" alt="profile-picture" class="rigth-profile-picture">
+                            <p class="username">@username</p>
+                        </div>
+                        <p class="description-metas">Treino, jogo e repito. Essa é a minha rotina. E hoje, 
+                            mais uma vez, saí de quadra com um sorriso após uma partida
+                                de basquete emocionante. 🏀😃 #VidaNoBasquete</p>
+                    </article>
+                    <article class="card ">
+                        <div class="header-card">
+                            <img src="../assets/profile-picture.png" alt="profile-picture" class="rigth-profile-picture">
+                            <p class="username">@username</p>
+                        </div>
+                        <p class="description-metas">Ei pessoal, só queria compartilhar a notícia 
+                            de que finalmente acertei aquele arremesso de
+                                três pontos que vinha me desafiando há meses!
+                                🏀💪 #Conquista #Basquete</p>
+                    </article>                  
+                </div>
+            </section>
+        </div>
+    </main> 
+</html>
