@@ -26,7 +26,7 @@ app.use('/login', loginRoute)
 app.use('/login/signin', signinRoute);  
 app.use('/login/signup', signupRoute); 
      
-  
+//Isto, faz que  aplicação comece a rodar apenas após a conexão com o banco de dados
 app.on('pronto', () => {
   app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
