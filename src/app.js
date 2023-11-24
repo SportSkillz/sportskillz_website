@@ -4,8 +4,6 @@ const EJS = require('ejs');
 const app = express();
 const port = 3000;
 
-const {appEmit} = require('../config/database.js');
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '../public'));
@@ -25,10 +23,7 @@ app.use('/profile', profileRoute)
 app.use('/login', loginRoute)
 app.use('/login/signin', signinRoute);  
 app.use('/login/signup', signupRoute); 
-     
-//Isto, faz que  aplicação comece a rodar apenas após a conexão com o banco de dados
-app.on('pronto', () => {
-  app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-  });
-})
+      
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
