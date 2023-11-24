@@ -23,8 +23,6 @@ app.use('/profile', profileRoute)
 app.use('/login', loginRoute)
 app.use('/login/signin', signinRoute);  
 app.use('/login/signup', signupRoute); 
-     
-  
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
