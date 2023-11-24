@@ -10,11 +10,11 @@ app.use(express.static(__dirname + '/public'));
 app.engine('html', renderFile);
 
 //Definindo rotas
-import profileRoute from './src/routes/profilePageRoute.js';
-import homepageRoute from './src/routes/homepageRoute.js';
-import loginRoute from './src/routes/loginRoute.js';
-import signinRoute from './src/routes/signInRoute.js';
-import signupRoute from './src/routes/signUpRoute.js';
+import profileRoute from './routes/profilePageRoute.js';
+import homepageRoute from './routes/homepageRoute.js';
+import loginRoute from './routes/loginRoute.js';
+import signinRoute from './routes/signInRoute.js';
+import signupRoute from './routes/signUpRoute.js';
 
 //Configurando Rotas
 app.use('/', homepageRoute)
