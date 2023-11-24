@@ -11,3 +11,5 @@ main()
   console.log('Conectado com sucesso');
 })
 .catch(err => console.log('Erro: ' + err))
+
+export default mongoose;
