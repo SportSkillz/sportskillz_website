@@ -1,36 +1,46 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+// const { MongoClient, ServerApiVersion } = require("mongodb");
 
-async function main() {
-  const uri =
-    "mongodb+srv://proberto:sportskillzapp@sportskillzcluster.zpv29li.mongodb.net/?retryWrites=true&w=majority";
+// async function main() {
+  
+//     const uri =
+//     "mongodb+srv://proberto:sportskillzapp@sportskillzcluster.zpv29li.mongodb.net/?retryWrites=true&w=majority";
 
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
+//   const client = new MongoClient(uri, {
+//     serverApi: {
+//       version: ServerApiVersion.v1,
+//       strict: true,
+//       deprecationErrors: true,
+//     },
+//   });
 
-  try {
-    await client.connect();
-    
-    await client.db("admin").command({ ping: 1 });
-    console.log("Você se conectou com sucesso ao MongoDB!");
+//   const dbName = "sportskillz";
 
-   // await listDatabases(client);
-  } catch (err) {
-    console.error("Aconteceu um erro " + err.message);
-  } finally {
-    await client.close();
-  }
-}
+//   try {
+//     await client.connect();
 
-// async function listDatabases(client){
-//     databaseList = await client.db().admin().listDatabases();
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Você se conectou com sucesso ao MongoDB!");
 
-//     console.log("Databases: ");
-//     databaseList.array.forEach(db => console.log(` - ${db.name}`));
-// };
+//     const db = client.db(dbName);
+//     const collection = db.collection("sport");
 
-main().catch(console.error);
+//   } catch (err) {
+//     console.error("Aconteceu um erro " + err.message);
+//   } finally {
+//     await client.close();
+//   }
+// }
+
+// main().catch(console.error);
+
+const mongoose = require('mongoose');
+
+const uri = 'mongodb+srv://proberto:sportskillzapp@sportskillzcluster.zpv29li.mongodb.net/?retryWrites=true&w=majority';
+
+var appEmit;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => appEmit.emit('pronto'));
+
+module.exports = {appEmit}
