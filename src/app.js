@@ -9,6 +9,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//Permite requisições do corpo dos formulários
+import bodyParser from 'body-parser';
+app.use(bodyParser.urlencoded({extended: true}));
+
+//Para visualização dos arquivos .ejs
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/../public'));
