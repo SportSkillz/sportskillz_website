@@ -3,6 +3,7 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
+//Devido a utilização do módulo ES, foi necessário a personalização da variaável '__dirname'
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
