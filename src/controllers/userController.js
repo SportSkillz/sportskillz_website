@@ -2,9 +2,9 @@ import UserModel from '../models/userModel.js';
 
 export const createUser = async(req, res) => {
     try {
-        const {name, email, password} = req.body;
+        const {username, email, password} = req.body;
 
-        if (!name || !email || !password) {
+        if (!username || !email || !password) {
             return res.status(400).json({erro: 'Dados invalidos'});
         }
         
@@ -14,14 +14,14 @@ export const createUser = async(req, res) => {
             return res.status(409).json({erro: 'Usuário já existe'});
         }
 
-        const newUser = new UserModel({ name, email, password});
+        const newUser = new UserModel({ username, email, password});
 
         await newUser.save();
 
         res.status(201).json(newUser);
 
     } catch (error) {
-        console.error('Erro ao criar novo usuário', error);
-        res.status(500).json({erro: 'Erro ao criar usuário'});
+        console.error('Erro ao criar novo usuário: ', error);
+        res.status(500).json({erro: 'Erro ao criar usuário: '});
     }
 };
