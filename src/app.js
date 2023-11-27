@@ -12,7 +12,7 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.engine('html', renderFile);
+// app.engine('html', renderFile);
 
 //Definindo rotas
 import profileRoute from './routes/profilePageRoute.js';
