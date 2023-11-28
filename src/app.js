@@ -1,18 +1,28 @@
+//Importando módulo dotenv
+import  dotenv from "dotenv";
+dotenv.config();
+
 //Definindo constantes
 import express from 'express';
 const app = express();
 const port = 3000;
 
-import "../config/database.js";
-import mongoose from 'mongoose';
+//Conexão com o banco de dados
+import mongoose from "mongoose";
+const uri = process.env.CONNECTIONSTRING;
+mongoose.connect(uri) 
+  .then(() => {
+    app.emit('pronto')
+    console.log('Conectado com sucesso');
+  })
+  .catch(err => console.log('Erro: ' + err));
 
-
+//Configuração e utilização de sessões
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash";
 
-//Gera o segredo de sessão de acordo com a quantidade de caracteres que for conveniente
-function generateSessionSecrect(length){
+function generateSessionSecrect(length){ //Gera o segredo de sessão de acordo com a quantidade de caracteres escolhida
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let secrect = '';
   for (let i = 0; i < length; i++) {
@@ -21,16 +31,20 @@ function generateSessionSecrect(length){
   }
   return secrect;
 }
-//Indica a quantidade de caracteres o segredo de sessão terá
-const sessionSecret = generateSessionSecrect(21);
+const sessionSecret = generateSessionSecrect(21); //Indica a quantidade de caracteres o segredo de sessão terá
+
+let store = new MongoStore({
+  mongoUrl: uri,
+  collectionName: "sessions"
+})
 
 const sessionOpt = session({
   secret: sessionSecret,
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  store: store,
   resave: false,
-  sabeUnintialized: false,
+  saveUninitialized: true,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
     httpOnly: true
   }
 });
@@ -68,6 +82,9 @@ app.use('/login', loginRoute)
 app.use('/login/signin', signinRoute);  
 app.use('/login/signup', signupRoute); 
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
+//o servidor começa a 'rodar' na porta, apenas após a conexão com o banco de dados
+app.on('pronto', () => {
+  app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+  });
+})
