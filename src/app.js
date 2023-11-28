@@ -44,7 +44,7 @@ const sessionOpt = session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
+    maxAge: 1000 * 60 * 60 * 24, // 1 dia 
     httpOnly: true
   }
 });
