@@ -3,6 +3,10 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
+import "../config/database.js";
+import mongoose from 'mongoose';
+
+
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash";
@@ -11,13 +15,27 @@ import flash from "connect-flash";
 function generateSessionSecrect(length){
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let secrect = '';
-
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * charset.length);
     secrect += charset[randomIndex];
   }
   return secrect;
 }
+//Indica a quantidade de caracteres o segredo de sessão terá
+const sessionSecret = generateSessionSecrect(21);
+
+const sessionOpt = session({
+  secret: sessionSecret,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  resave: false,
+  sabeUnintialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+    httpOnly: true
+  }
+});
+app.use(sessionOpt);
+app.use(flash());
 
 //Devido a utilização do módulo ES, foi necessário a personalização da variaável '__dirname'
 import path from 'path';
