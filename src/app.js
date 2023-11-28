@@ -36,9 +36,9 @@ const sessionSecret = generateSessionSecrect(21); //Indica a quantidade de carac
 let store = new MongoStore({
   mongoUrl: uri,
   collectionName: "sessions"
-})
+}) //Indica o banco de dados que será conectado, assim como a coleção em que as sessões serão salvas
 
-const sessionOpt = session({
+const sessionOpt = session({ //Firma as configurações das sessões que serão criadas
   secret: sessionSecret,
   store: store,
   resave: false,
