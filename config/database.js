@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const app = require('../app.js')
+const app = require('../src/app.js')
 
 const uri = 'mongodb+srv://proberto:sportskillzapp@sportskillzcluster.zpv29li.mongodb.net/?retryWrites=true&w=majority';
 
