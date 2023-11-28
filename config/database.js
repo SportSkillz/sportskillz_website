@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
 
-const uri = 'mongodb+srv://proberto:sportskillzapp@sportskillzcluster.zpv29li.mongodb.net/?retryWrites=true&w=majority';
+import  dotenv from "dotenv";
+dotenv.config();
+
 
 async function main(){
-  await mongoose.connect(uri)
+  await mongoose.connect(process.env.CONNECTIONSTRING) 
 }
 
 main()
