@@ -6,7 +6,7 @@ const {Schema} = mongoose;
 
 const userSchema = new Schema({
     name: {type: String, require: true},
-    email: {type: String, require: true},
+    email: {type: String, require: true, unique: true},
     password: {type: String, require: true}
 });
 
@@ -19,7 +19,15 @@ userSchema.pre('save', async function(next){
     } catch (error) {
         next(error);
     }
-})
+});
+
+userSchema.methods.isValidPassword = async function(password){
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        throw error;
+    }
+};
 
 const UserModel = mongoose.model('User', userSchema);
 
