@@ -5,5 +5,4 @@ router.get('/', (req, res) => {
     res.render('login/login.ejs')
 })
 
-
 export default router; 
