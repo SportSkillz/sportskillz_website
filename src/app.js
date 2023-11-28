@@ -7,6 +7,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash";
 
+//Gera o segredo de sessão de acordo com a quantidade de caracteres que for conveniente
 function generateSessionSecrect(length){
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let secrect = '';
