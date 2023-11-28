@@ -3,6 +3,21 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import flash from "connect-flash";
+
+function generateSessionSecrect(length){
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let secrect = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    secrect += charset[randomIndex];
+  }
+  return secrect;
+}
+
 //Devido a utilização do módulo ES, foi necessário a personalização da variaável '__dirname'
 import path from 'path';
 import { fileURLToPath } from 'url';
