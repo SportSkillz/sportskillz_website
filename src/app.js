@@ -51,6 +51,10 @@ const sessionOpt = session({ //Firma as configurações das sessões que serão 
 app.use(sessionOpt);
 app.use(flash());
 
+import passport from "./controllers/passportLocal.js";
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Devido a utilização do módulo ES, foi necessário a personalização da variaável '__dirname'
 import path from 'path';
 import { fileURLToPath } from 'url';
