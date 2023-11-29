@@ -19,3 +19,5 @@ const sportSchema = new Schema({
 
 const ClassModel = mongoose.model('Class', classSchema);
 const SportModel = mongoose.model('Sport', sportSchema);
+
+export {ClassModel, SportModel};
