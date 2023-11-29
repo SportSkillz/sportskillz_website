@@ -55,7 +55,7 @@ import passport from "./controllers/passportLocal.js";
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Devido a utilização do módulo ES, foi necessário a personalização da variaável '__dirname'
+//Devido a utilização do módulo ES, foi necessário a personalização da variável '__dirname'
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
