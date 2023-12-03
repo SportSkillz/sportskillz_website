@@ -10,8 +10,11 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import flash from 'connect-flash';
 import bodyParser from 'body-parser';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 // Definindo constantes
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
@@ -63,11 +66,11 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Para visualização dos arquivos .ejs
-app.set('views', path.join(new URL('.', import.meta.url).pathname, '/views'));
-app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs')
 
 // Definindo local dos arquivos estáticos
-const pathPublic = path.join(new URL('.', import.meta.url).pathname, '/../public');
+const pathPublic = path.join(__dirname, '..', 'public');
 app.use(express.static(pathPublic));
 
 // Definindo rotas
