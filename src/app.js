@@ -79,6 +79,7 @@ import homepageRoute from './routes/homepageRoute.js';
 import loginRoute from './routes/loginRoute.js';
 import signinRoute from './routes/signInRoute.js';
 import signupRoute from './routes/signUpRoute.js';
+import sportRoute from './routes/sportsRoute.js'
 
 // Configurando Rotas
 app.use('/', homepageRoute);
@@ -86,6 +87,7 @@ app.use('/profile', profileRoute);
 app.use('/login', loginRoute);
 app.use('/login/signin', signinRoute);
 app.use('/login/signup', signupRoute);
+app.use('/create-sport', sportRoute);
 
 // O servidor começa a 'rodar' na porta, apenas após a conexão com o banco de dados
 app.on('pronto', () => {
