@@ -8,26 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/template/feedback-card.css" />
   </head>
   <body>
-    <header>
-      <img src="assets/main-logo.svg" alt="Logo" id="main-logo" />
-      <nav>
-        <a href="/">Inicio</a>
-        <a href="#">Sportz</a>
-        <a href="#" id="feedbackLink">Feedbacks</a>
-        <a href="#">Sobre nós</a>
-      </nav>
-
-      <!-- Se o usuário estiver autenticado, exibe o botão de logout, caso contrário, exiba o botão de login -->
-      <% if (isAuthenticated) { %>
-      <form action="/login/signin/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
-      <% } else { %>
-      <form action="/login" method="GET">
-        <button type="submit">Login</button>
-      </form>
-      <% } %>
-    </header>
+    <%- include('../partials/header.ejs')%>
     <section class="banner">
       <div class="banner-content">
         <img src="assets/main-logo.svg" alt="Logo" id="banner-logo" />
