@@ -1,4 +1,4 @@
-import { SportModel } from "../models/sportModel";
+import { SportModel } from "../models/sportModel.js";
 
 export const createSport = async(req, res) => {
     try {
