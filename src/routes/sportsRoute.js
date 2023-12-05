@@ -1,5 +1,5 @@
 import express from "express";
-import { createSport } from "../controllers/sportController";
+import { createSport } from "../controllers/sportController.js";
 
 var router = express.Router();
 
