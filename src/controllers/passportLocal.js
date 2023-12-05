@@ -7,7 +7,8 @@ passport.use(new LocalStrategy( { usernameField: 'email', session: false},
         try{
             const foundUser = await user.findOne({ email: email});
             if(!foundUser){ return done(null, false)};
-            if(!foundUser.isValidPassword(password)) { return done(null, false)};
+            const isPasswordValid = await foundUser.isValidPassword(password);
+            if(!isPasswordValid) { return done(null, false)};
             return done(null, foundUser);
         } catch(err){
             return done(err);
