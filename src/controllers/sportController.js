@@ -1,4 +1,6 @@
 import { SportModel } from "../models/sportModel.js";
+import fs from 'fs/promises';
+import path from 'path';
 
 export const createSport = async(req, res) => {
     try {
@@ -8,9 +10,19 @@ export const createSport = async(req, res) => {
             return res.status(400).json({erro: 'Dados invalidos'});
         }
 
-        const {buffer, mimetype} = req.body;
+        // Cria um nome único para o arquivo
+        const fileName = `${title.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}${path.extname(req.file.originalname)}`;
 
-        const newSport = new SportModel({ title, description, image: buffer, imageType: mimetype});
+        // Define o caminho onde o arquivo será salvo
+        const filePath = path.join(__dirname, '../../public/uploads', fileName);
+
+         // Salva o arquivo no sistema de arquivos
+        await fs.writeFile(filePath, req.file.buffer);
+        
+        // Armazena o caminho da imagem no banco de dados
+        const imageUrl = `/uploads/${fileName}`
+
+        const newSport = new SportModel({ title, description, imageUrl});
 
         const savedSport = await newSport.save();
         res.status(201).json(savedSport);
