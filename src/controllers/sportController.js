@@ -8,7 +8,9 @@ export const createSport = async(req, res) => {
             return res.status(400).json({erro: 'Dados invalidos'});
         }
 
-        const newSport = new SportModel({ title, description});
+        const {buffer, mimetype} = req.body;
+
+        const newSport = new SportModel({ title, description, image: buffer, imageType: mimetype});
 
         const savedSport = await newSport.save();
         res.status(201).json(savedSport);
