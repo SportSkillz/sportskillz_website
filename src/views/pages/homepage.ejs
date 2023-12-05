@@ -21,35 +21,17 @@
     </section>
 
     <section class="card-container">
-        <!--Card 1-->
+      
+    <% sportList.forEach((sport) => { %>
         <div class="card">
-            <h3 class='title-card'>Volei</h3>
-            <img src="assets/cardImages/volei-card.svg" alt="card-image">
-            <div class="description-box">
-                <p class='description-card'>Aprenda as técnicas avançadas do voleibol e melhore suas habilidades em quadra.</p>
-                <a href="#" class="course-button">Detalhes</a>
-            </div>
+          <h3 class='title-card'><%= sport.title %></h3>
+          <img src="<%= sport.imageUrl %>" alt="card-image">
+          <div class="description-box">
+            <p class='description-card'><%= sport.description %></p>
+            <a href="/esporte/<%= sport._id %>" class="course-button">Detalhes</a>
+          </div>
         </div>
-    
-        <!--Card 2-->
-        <div class="card">
-            <h3 class='title-card'>Basquete</h3>
-            <img src="assets/cardImages/basquete-card.svg" alt="card-image">
-            <div class="description-box">
-                <p class='description-card'>Descubra os segredos do basquete e aprimore seu arremesso e dribles.</p>
-                <a href="#" class="course-button">Detalhes</a>
-            </div>
-        </div>
-    
-        <!--Card 3-->
-        <div class="card">
-            <h3 class='title-card'>Futebol</h3>
-            <img src="assets/cardImages/futebol-card.svg" alt="card-image">
-            <div class="description-box">
-                <p class='description-card'>Domine as táticas do futebol e aperfeiçoe sua habilidade com a bola nos pés.</p>
-                <a href="#" class="course-button">Detalhes</a>
-            </div>
-        </div>
+      <% }); %>
     </section>
 
     <section class="feedback" id="feedbackSection">
