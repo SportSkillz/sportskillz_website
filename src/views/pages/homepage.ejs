@@ -1,49 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
-    <link rel="stylesheet" href="/stylesheets/pages/homepage.css">
-    <link rel="stylesheet" href="/stylesheets/template/feedback-card.css">
-</head>
-<body>
-    <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/pages/homepage.css" />
+    <link rel="stylesheet" href="/stylesheets/template/feedback-card.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/main-logo.svg" alt="Logo" id="main-logo" />
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="#">Sportz</a>
+        <a href="#" id="feedbackLink">Feedbacks</a>
+        <a href="#">Sobre nós</a>
+      </nav>
+
+      <!-- Se o usuário estiver autenticado, exibe o botão de logout, caso contrário, exiba o botão de login -->
+      <% if (isAuthenticated) { %>
+      <form action="/login/signin/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+      <% } else { %>
+      <form action="/login" method="GET">
+        <button type="submit">Login</button>
+      </form>
+      <% } %>
+    </header>
     <section class="banner">
-        <div class="banner-content">
-            <img src="assets/main-logo.svg" alt="Logo" id="banner-logo">
-            <p id="banner-text">O lugar perfeito para você aprender</p>
-            <a href="#" class="start-button">Comece</a>
-        </div>
-        <div class="square-image">
-            <img src="assets/quadra-em-desfoque.png" alt="Imagem Quadrada">
-        </div>
+      <div class="banner-content">
+        <img src="assets/main-logo.svg" alt="Logo" id="banner-logo" />
+        <p id="banner-text">O lugar perfeito para você aprender</p>
+        <a href="#" class="start-button">Comece</a>
+      </div>
+      <div class="square-image">
+        <img src="assets/quadra-em-desfoque.png" alt="Imagem Quadrada" />
+      </div>
     </section>
 
     <section class="card-container">
-      
-    <% sportList.forEach((sport) => { %>
-        <div class="card">
-          <h3 class='title-card'><%= sport.title %></h3>
-          <img src="<%= sport.imageUrl %>" alt="card-image">
-          <div class="description-box">
-            <p class='description-card'><%= sport.description %></p>
-            <a href="/esporte/<%= sport._id %>" class="course-button">Detalhes</a>
-          </div>
+      <% sportList.forEach((sport) => { %>
+      <div class="card">
+        <h3 class="title-card"><%= sport.title %></h3>
+        <img src="<%= sport.imageUrl %>" alt="card-image" />
+        <div class="description-box">
+          <p class="description-card"><%= sport.description %></p>
+          <a href="/esporte/<%= sport._id %>" class="course-button">Detalhes</a>
         </div>
+      </div>
       <% }); %>
     </section>
 
     <section class="feedback" id="feedbackSection">
-        <h2>Feedbacks</h2>
-        <div class="feedback-box">
-           <script src="../script/feedback-card.js"></script>
-        </div>
+      <h2>Feedbacks</h2>
+      <div class="feedback-box">
+        <script src="../script/feedback-card.js"></script>
+      </div>
     </section>
 
     <!-- Footer -->
     <%- include('../partials/footer.ejs')%>
     <script src="../script/homepage.js"></script>
-</body>
-    
+  </body>
 </html>
