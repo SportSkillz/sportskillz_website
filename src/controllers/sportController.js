@@ -33,3 +33,13 @@ export const createSport = async(req, res) => {
     }
 };
 
+export const listSport = async(req, res) => {
+    try {
+        const sportList = await SportModel.find();
+
+        return sportList;
+    } catch (error) {
+        console.error('Erro ao obter lista de esportes:', error);
+        res.status(500).send('Erro interno do servidor');
+    }
+};
