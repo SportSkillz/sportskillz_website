@@ -13,6 +13,8 @@ const classSchema = new Schema({
 const sportSchema = new Schema({
     title: {type: String, require: true},
     description: {type: String, require: true},
+    image: {type: Buffer},
+    imageType: {type: String },
     class: [{type: Schema.Types.ObjectId, ref: 'Class'}]
 
 });
