@@ -8,3 +8,5 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', createSport);
+
+export default router;
