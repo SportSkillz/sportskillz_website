@@ -18,7 +18,15 @@ export const createUser = async(req, res) => {
 
         await newUser.save();
 
-        res.redirect('/');
+        req.login(newUser, (err) => {
+            if (err) {
+              console.error('Erro ao fazer login após criar novo usuário: ', err);
+              res.status(500).json({ erro: 'Erro ao fazer login após criar usuário' });
+            } else {
+              res.redirect('/');
+            }
+          });
+      
 
     } catch (error) {
         console.error('Erro ao criar novo usuário: ', error);
