@@ -93,7 +93,7 @@ app.use('/profile', profileRoute);
 app.use('/login', loginRoute);
 app.use('/login/signin', signinRoute);
 app.use('/login/signup', signupRoute);
-app.use('/create-sport', sportRoute);
+app.use('/sport', sportRoute);
 
 // O servidor começa a 'rodar' na porta, apenas após a conexão com o banco de dados
 app.on('pronto', () => {
