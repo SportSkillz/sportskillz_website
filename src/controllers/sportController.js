@@ -7,12 +7,10 @@ export const createSport = async(req, res) => {
     try {
         const {title, description} = req.body;
 
-        if(!title || !description){
-            return res.status(400).json({erro: 'Dados invalidos'});
-        }
+        if(!title || !description){ return res.status(400).json({erro: 'Dados invalidos'}); };
 
-         // Utilizando fileURLToPath para obter o caminho do diretório atual
-         const currentDir = path.dirname(fileURLToPath(import.meta.url));
+        // Utilizando fileURLToPath para obter o caminho do diretório atual
+        const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
         // Cria um nome único para o arquivo
         const fileName = `${title.replace(/\s+/g, '_').toLowerCase()}_${Date.now()}${path.extname(req.file.originalname)}`;
@@ -24,7 +22,7 @@ export const createSport = async(req, res) => {
         await fs.writeFile(filePath, req.file.buffer);
 
         // Armazena o caminho da imagem no banco de dados
-        const imageUrl = `/uploads/${fileName}`
+        const imageUrl = `/uploads/${fileName}`;
 
         const newSport = new SportModel({ title, description, imageUrl});
 
