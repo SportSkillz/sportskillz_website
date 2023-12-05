@@ -62,6 +62,12 @@ import passport from "./controllers/passportLocal.js";
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Guardando o valor de 'isAuthenticated' na sessão
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
+
 // Permitindo requisições do corpo dos formulários
 app.use(bodyParser.urlencoded({ extended: true }));
 
