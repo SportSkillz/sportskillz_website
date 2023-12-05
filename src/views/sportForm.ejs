@@ -7,14 +7,15 @@
 </head>
 <body>
   <h1>Criar Novo Esporte</h1>
-  <form action="/create-sport" method="POST">
+  <form action="/create-sport" method="POST" enctype="multipart/form-data>
     <label for="title">Título:</label>
     <input type="text" id="title" name="title" required>
 
     <label for="description">Descrição:</label>
     <textarea id="description" name="description" required></textarea>
 
-    <!-- Adicione mais campos conforme necessário -->
+    <label for="image">Imagem:</label>
+    <input type="file" id="image" name="image" accept="image/*">
 
     <button type="submit">Criar Esporte</button>
   </form>
